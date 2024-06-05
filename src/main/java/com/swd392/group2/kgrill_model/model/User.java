@@ -22,7 +22,9 @@ import java.util.*;
 @AllArgsConstructor
 @Entity
 @Builder
-@Table(name = "account")
+@Table(name = "account", indexes = {
+        @Index(name = "idx_email", columnList = "email"),
+})
 @EntityListeners(AuditingEntityListener.class)
 public class User implements UserDetails, Principal {
 

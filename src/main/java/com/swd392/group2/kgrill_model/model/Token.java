@@ -12,7 +12,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Builder
-@Table(name = "token")
+@Table(name = "token", indexes = {
+        @Index(name = "idx_access_token", columnList = "access_token"),
+        @Index(name = "idx_refresh_token", columnList = "refresh_token"),
+})
 public class Token {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
