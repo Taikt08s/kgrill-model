@@ -18,7 +18,7 @@
 	</properties>
 	<distributionManagement>
 		<repository>
-			<id>github</id>
+			<id>github-kgrill-model</id>
 			<name>GitHub Packages</name>
 			<url>https://maven.pkg.github.com/Taikt08s/kgrill-model</url>
 		</repository>
