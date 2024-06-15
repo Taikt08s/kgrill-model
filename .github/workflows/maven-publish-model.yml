@@ -24,4 +24,5 @@ jobs:
           mvn release:prepare --batch-mode
           mvn release:perform --batch-mode
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          ACTOR: ${{ secrets.ACTOR }}
+          TOKEN: ${{ secrets.TOKEN }}
