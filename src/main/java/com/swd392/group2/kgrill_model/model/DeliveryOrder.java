@@ -16,6 +16,8 @@ public class DeliveryOrder {
     private Float orderValue;
     private Date shippedDate;
     private String shippedAddress;
+    private Double latitude;
+    private Double longitude;
     private Float shippingFee;
     private String status;
     private String code;
