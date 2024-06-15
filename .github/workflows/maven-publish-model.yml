@@ -27,6 +27,6 @@ jobs:
       - name: Build and Deploy to GitHub Packages
         run: |
           mvn clean install -DskipTests
-          mvn deploy --settings settings.xml
+          mvn deploy --settings ~/settings.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
