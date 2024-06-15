@@ -18,8 +18,15 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
+          
+      - name: Increment Version
+        run: mvn versions:set -DnewVersion=$(date +%Y%m%d)-$(git rev-parse --short HEAD)
+
+      - name: Copy settings.xml
+        run: cp .github/settings.xml $HOME/.m2/settings.xml
 
       - name: Set environment variables
+        run: echo "Setting environment variables"
         env:
           SPRING_APPLICATION_NAME: ${{ secrets.SPRING_APPLICATION_NAME }}
           SPRING_DATASOURCE_URL: ${{ secrets.SPRING_DATASOURCE_URL }}
@@ -29,12 +36,6 @@ jobs:
           SPRING_JPA_SHOW_SQL: ${{ secrets.SPRING_JPA_SHOW_SQL }}
           LOGGING_LEVEL_ORG_HIBERNATE_SQL: ${{ secrets.LOGGING_LEVEL_ORG_HIBERNATE_SQL }}
           LOGGING_LEVEL_ORG_HIBERNATE_TYPE_DESCRIPTOR_SQL: ${{ secrets.LOGGING_LEVEL_ORG_HIBERNATE_TYPE_DESCRIPTOR_SQL }}
-
-      - name: Increment Version
-        run: mvn versions:set -DnewVersion=$(date +%Y%m%d)-$(git rev-parse --short HEAD)
-
-      - name: Copy settings.xml
-        run: cp .github/settings.xml $HOME/.m2/settings.xml
 
       - name: Build and Deploy to GitHub Packages
         run: |
