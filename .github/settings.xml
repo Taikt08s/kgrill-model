@@ -2,8 +2,8 @@
   <servers>
     <server>
       <id>github-kgrill-model</id>
-      <username>taikt08s</username>
-      <password>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</password>
+      <username>${env.ACTOR}</username>
+      <password>${env.TOKEN}</password>
     </server>
   </servers>
 </settings>
