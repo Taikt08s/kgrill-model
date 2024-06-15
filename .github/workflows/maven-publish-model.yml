@@ -28,5 +28,8 @@ jobs:
         run: |
           mvn clean install -DskipTests
           mvn deploy --settings .github/settings.xml
+
+      - name: Print Environment Variables
+        run: printenv
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
