@@ -1,0 +1,10 @@
+ <settings>
+  <servers>
+    <server>
+      <id>github-kgrill-model</id>
+      <username>${env.ACTOR}</username>
+      <password>${env.TOKEN}</password>
+    </server>
+  </servers>
+</settings>
+
