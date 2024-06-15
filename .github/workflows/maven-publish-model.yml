@@ -42,4 +42,4 @@ jobs:
           mvn clean install -DskipTests
           mvn deploy --settings $HOME/.m2/settings.xml -X
         env:
-         GH_TOKEN: ${{ secrets.GH_TOKEN }}
+         GH_TOKEN: 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
