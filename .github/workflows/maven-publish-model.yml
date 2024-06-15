@@ -22,9 +22,13 @@ jobs:
       - name: Increment Version
         run: mvn versions:set -DnewVersion=$(date +%Y%m%d)-$(git rev-parse --short HEAD)
 
+      - name: Copy settings.xml
+        run: cp .github/settings.xml $HOME/.m2/settings.xml
+
       - name: Build and Deploy to GitHub Packages
         run: |
           mvn clean install -DskipTests
-          mvn deploy --settings=settings.xml
+          mvn deploy --settings $HOME/.m2/settings.xml
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          ACTOR: ${{ github.actor }}
