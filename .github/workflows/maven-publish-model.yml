@@ -45,8 +45,8 @@ jobs:
 
     - name: Deploy to GitHub Packages
       env:
-        ACTOR: ${{ secrets.ACTOR }}
-        TOKEN: ${{ secrets.TOKEN }}
+        ACTOR: ${{ env.ACTOR }}
+        TOKEN: ${{ env.TOKEN }}
         
       run: mvn deploy -DskipTests --settings .github/settings.xml
 
