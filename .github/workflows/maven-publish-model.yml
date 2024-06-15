@@ -21,6 +21,22 @@ jobs:
         java-version: '17'
         distribution: 'zulu'
 
+    - name: Grant execute permission for mvnw
+      run: chmod +x ./mvnw
+
+    - name: Set up settings.xml
+      run: |
+        mkdir -p ~/.m2
+        echo "<settings>
+          <servers>
+            <server>
+              <id>github-kgrill-model</id>
+              <username>taikt08s</username>
+              <password>${{ secrets.GH_TOKEN }}</password>
+            </server>
+          </servers>
+        </settings>" > ~/.m2/settings.xml
+
     - name: Publish package
       run: ./mvnw deploy
       env:
