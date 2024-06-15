@@ -1,4 +1,4 @@
-<!-- <settings>
+<settings>
   <servers>
     <server>
       <id>github-kgrill-model</id>
@@ -6,11 +6,7 @@
       <password>${secrets.GH_TOKEN}</password>
     </server>
   </servers>
-</settings> -->
+</settings>
 
-<server>
-  <id>repo-id</id>
-  <username>azureArtifactsAccessToken</username>
-  <password> ${secrets.GH_TOKEN} </password>
-</server>
+
 
