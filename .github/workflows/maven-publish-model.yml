@@ -30,5 +30,4 @@ jobs:
           mvn clean install -DskipTests
           mvn deploy --settings $HOME/.m2/settings.xml
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-          ACTOR: ${{ github.actor }}
+         GH_TOKEN: ${{ secrets.GH_TOKEN }}
