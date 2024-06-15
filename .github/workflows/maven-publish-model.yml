@@ -28,6 +28,6 @@ jobs:
       - name: Build and Deploy to GitHub Packages
         run: |
           mvn clean install -DskipTests
-          mvn deploy --settings $HOME/.m2/settings.xml
+          mvn deploy --settings $HOME/.m2/settings.xml -X
         env:
          GH_TOKEN: ${{ secrets.GH_TOKEN }}
