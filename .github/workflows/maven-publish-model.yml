@@ -42,4 +42,4 @@ jobs:
           mvn clean install -DskipTests
           mvn deploy --settings $HOME/.m2/settings.xml -X
         env:
-         GH_TOKEN: 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
+         GH_TOKEN: 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
