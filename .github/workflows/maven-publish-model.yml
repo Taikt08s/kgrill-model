@@ -19,14 +19,7 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Configure Git
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-
       - name: Build and Deploy to GitHub Packages
-        run: |
-          mvn clean install -DskipTests
-          mvn deploy --settings .github/settings.xml
+        run: mvn clean deploy --settings .github/settings.xml -DskipTests
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
