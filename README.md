@@ -1,0 +1,1 @@
+[![Publish package to GitHub Packages](https://github.com/Taikt08s/kgrill-model/actions/workflows/maven-publish-model.yml/badge.svg?branch=main)](https://github.com/Taikt08s/kgrill-model/actions/workflows/maven-publish-model.yml)
