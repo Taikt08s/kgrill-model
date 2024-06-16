@@ -15,6 +15,6 @@ jobs:
       - name: Publish package
         run: 
           mvn clean install -DskipTests
-          mvn --batch-mode deploy
+          mvn deploy --settings .github/settings.xml
         env:
           JAVA_TOKEN: ${{ secrets.JAVA_TOKEN }}
