@@ -21,6 +21,10 @@ jobs:
         java-version: '17'
         distribution: 'zulu'
 
+    - uses: s4u/maven-settings-action@v2.5.0
+      with:
+        servers: '[{"id": "github","configuration": {"httpHeaders": {"property": {"name": "Authorization","value": "Bearer ${{ secrets.GH_TOKEN }}"}}}}]'
+
     - name: Publish to GitHub Packages Apache Maven
       run: |
         mvn deploy -s .github/settings.xml -X
