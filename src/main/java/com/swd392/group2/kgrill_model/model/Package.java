@@ -11,9 +11,10 @@ public class Package {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private String ingredient;
+    private String description;
     private String code;
     private Float price;
+    private boolean active;
 
     @ManyToOne
     @JoinColumn(name = "package_type_id")
