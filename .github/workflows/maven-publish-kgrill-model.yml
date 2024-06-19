@@ -27,4 +27,4 @@ jobs:
       - name: Publish package
         run: |
           mvn clean install -DskipTests
-          mvn clean deploy 
+          mvn --batch-mode deploy 
