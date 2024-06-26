@@ -1,5 +1,6 @@
 package com.swd392.group2.kgrill_model.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import jakarta.persistence.*;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 public class Package {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonProperty("package_id")
     private Integer id;
     private String name;
     private String description;

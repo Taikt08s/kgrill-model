@@ -1,5 +1,6 @@
 package com.swd392.group2.kgrill_model.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.swd392.group2.kgrill_model.enums.TokenType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -21,12 +22,15 @@ public class Token {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonProperty("access_token")
     @Column(name = "access_token",length = 350)
     private String accessToken;
 
+    @JsonProperty("refresh_token")
     @Column(name = "refresh_token",length = 350)
     private String refreshToken;
 
+    @JsonProperty("token_type")
     @Column(name = "token_type")
     @Enumerated(EnumType.STRING)
     private TokenType tokenType;

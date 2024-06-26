@@ -9,6 +9,7 @@ import java.util.List;
 public class DishCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Integer id;
     private String category;
 

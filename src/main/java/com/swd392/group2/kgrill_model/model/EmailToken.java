@@ -1,5 +1,6 @@
 package com.swd392.group2.kgrill_model.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,15 +23,19 @@ public class EmailToken {
     @Column(name = "verification_token")
     private String token;
 
+    @JsonProperty("created_at")
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
+    @JsonProperty("expired_at")
     @Column(name = "expired_at")
     private LocalDateTime expiredAt;
 
+    @JsonProperty("validate_at")
     @Column(name = "validate_at")
     private LocalDateTime validateAt;
 
+    @JsonProperty("revoked_token")
     @Column(name = "revoked_token")
     private boolean revokedToken;
 
