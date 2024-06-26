@@ -1,6 +1,7 @@
 package com.swd392.group2.kgrill_model.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.swd392.group2.kgrill_model.enums.AuthenticationProvider;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -30,12 +31,15 @@ public class User implements UserDetails, Principal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @JsonProperty("user_id")
     @Column(name = "account_id")
     private UUID userId;
 
+    @JsonProperty("first_name")
     @Column(name = "first_name")
     private String firstName;
 
+    @JsonProperty("last_name")
     @Column(name = "last_name")
     private String lastName;
 
@@ -61,6 +65,7 @@ public class User implements UserDetails, Principal {
     @Column(name = "password")
     private String password;
 
+    @JsonProperty("profile_picture")
     @Column(name = "profile_picture")
     private String profilePic;
 
