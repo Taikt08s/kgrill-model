@@ -24,7 +24,7 @@ public class DeliveryOrder {
     private String shippedAddress;
     private Double latitude;
     private Double longitude;
-    @JsonProperty("shipping_fee ")
+    @JsonProperty("shipping_fee")
     private Float shippingFee;
     private String status;
     private String code;
