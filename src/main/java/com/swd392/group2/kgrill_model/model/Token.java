@@ -23,7 +23,7 @@ public class Token {
     private Long id;
 
     @JsonProperty("access_token")
-    @Column(name = "access_token",length = 350)
+    @Column(name = "access_token",length = 450)
     private String accessToken;
 
     @JsonProperty("refresh_token")
