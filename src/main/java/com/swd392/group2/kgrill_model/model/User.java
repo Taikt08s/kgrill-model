@@ -162,9 +162,9 @@ public class User implements UserDetails, Principal {
         return enable;
     }
 
-//    @JsonIgnore
-//    public String fullName() {
-//        return firstName + ' ' + lastName;
-//    }
+    @JsonIgnore
+    public String fullName() {
+        return firstName + ' ' + lastName;
+    }
 
 }
