@@ -101,11 +101,11 @@ public class User implements UserDetails, Principal {
     private DeliveryOrder currentOrder;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<DeliveryOrder> orders;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Feedback> feedbacks;
 
     public String getRoleName() {
