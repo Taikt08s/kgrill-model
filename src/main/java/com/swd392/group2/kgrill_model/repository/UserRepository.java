@@ -17,7 +17,7 @@ import java.util.UUID;
 public interface UserRepository extends JpaRepository<User, UUID> {
     Optional<User> findByEmail(String email);
 
-    @Query(value = "SELECT * FROM account WHERE email LIKE %:email%", nativeQuery = true)
+    @Query(value = "SELECT * FROM account WHERE email LIKE '%:email%'", nativeQuery = true)
     Page<User> findByEmail(String email, Pageable pageable);
 
 }
