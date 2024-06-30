@@ -3,8 +3,10 @@ package com.swd392.group2.kgrill_model.repository;
 
 import com.swd392.group2.kgrill_model.model.Token;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,5 +19,10 @@ public interface TokenRepository extends JpaRepository<Token, Long> {
     Optional<Token> findByAccessToken(String token);
 
     Optional<Token> findByRefreshTokenAndRevokedFalseAndExpiredFalse(String refreshToken);
+
+    @Modifying
+    @Transactional
+    @Query("DELETE FROM Token t WHERE t.revoked = true AND t.expired = true")
+    void deleteTokensByRevokedTrueAndExpiredTrue();
 
 }
