@@ -77,6 +77,7 @@ public class User implements UserDetails, Principal {
     @Column(name = "is_enable")
     private boolean enable;
 
+    @JsonProperty("oauth_provider")
     @Column(name = "oauth_provider", length = 15)
     private AuthenticationProvider authProvider;
 
