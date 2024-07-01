@@ -16,6 +16,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.security.Principal;
+import java.time.LocalDate;
 import java.util.*;
 
 @Data
@@ -57,6 +58,9 @@ public class User implements UserDetails, Principal {
 
     @Column(name = "gender")
     private String gender;
+
+    @Column(name = "dob")
+    private LocalDate dob;
 
     @Column(name = "phone")
     private String phone;
