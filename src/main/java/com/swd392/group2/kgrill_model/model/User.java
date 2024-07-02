@@ -60,7 +60,7 @@ public class User implements UserDetails, Principal {
     private String gender;
 
     @Column(name = "dob")
-    private LocalDate dob;
+    private String dob;
 
     @Column(name = "phone")
     private String phone;
