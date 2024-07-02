@@ -23,4 +23,8 @@ public interface UserRepository extends JpaRepository<User, UUID> {
             """)
     Page<User> findByEmail(@Param("email") String email, Pageable pageable);
 
+    @Query(value = """
+            SELECT COUNT(u) FROM User u WHERE u.role.roleId = :roleId
+            """)
+    long countUserWithRoleId(@Param("roleId") long roleId);
 }

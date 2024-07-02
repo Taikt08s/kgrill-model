@@ -11,7 +11,5 @@ import org.springframework.data.repository.query.Param;
 
 public interface ShipperRepository extends JpaRepository<Shipper, Long> {
 
-    @Query("SELECT s FROM Shipper s WHERE s.uuid = :uuid")
-    Page<Shipper> findShipperByUuid(@Param("uuid") String uuid, @NonNull Pageable pageable);
 
 }
