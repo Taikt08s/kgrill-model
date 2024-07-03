@@ -25,14 +25,8 @@ public class Package {
     private Float price;
     private boolean active;
     private String thumbnail;
-
-    @ManyToOne
-    @JoinColumn(name = "package_type_id")
-    private PackageType packageType;
-
-    @ManyToOne
-    @JoinColumn(name = "size_id")
-    private PackageSize size;
+    private String packageType;
+    private String packageSize;
 
     @OneToMany(mappedBy = "packageEntity")
     private List<OrderDetail> orderDetails;
