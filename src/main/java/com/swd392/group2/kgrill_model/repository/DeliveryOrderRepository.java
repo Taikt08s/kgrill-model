@@ -6,9 +6,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import java.sql.Date;
+import java.time.LocalDate;
 
 @Repository
 public interface DeliveryOrderRepository extends JpaRepository<DeliveryOrder, Long> {
@@ -47,24 +49,10 @@ public interface DeliveryOrderRepository extends JpaRepository<DeliveryOrder, Lo
     int countByYearly();
 
     @Query("""
-            SELECT d 
-            FROM DeliveryOrder d 
-            WHERE d.orderDate >= DATE_TRUNC('day', CURRENT_DATE)
-            """)
-    Page<DeliveryOrder> getDeliveryOrderByDaily(Pageable pageable);
-
-    @Query("""
-            SELECT d 
-            FROM DeliveryOrder d 
-            WHERE d.orderDate >= DATE_TRUNC('month', CURRENT_DATE)
-            """)
-    Page<DeliveryOrder> getDeliveryOrderByMonthly(Pageable pageable);
-
-    @Query("""
-            SELECT d 
-            FROM DeliveryOrder d 
-            WHERE d.orderDate >= DATE_TRUNC('year', CURRENT_DATE)
-            """)
-    Page<DeliveryOrder> getDeliveryOrderByYearly(Pageable pageable);
+            SELECT d
+            FROM DeliveryOrder d
+            WHERE d.orderDate <= CAST(:date AS date)  
+             """)
+    Page<DeliveryOrder> getDeliveryOrderByDateIncludingCurrentDay(Pageable pageable, @Param("date") LocalDate date);
 
 }
