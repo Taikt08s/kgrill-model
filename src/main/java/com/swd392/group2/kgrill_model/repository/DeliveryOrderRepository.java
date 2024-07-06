@@ -11,6 +11,8 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface DeliveryOrderRepository extends JpaRepository<DeliveryOrder, Long> {
@@ -53,6 +55,12 @@ public interface DeliveryOrderRepository extends JpaRepository<DeliveryOrder, Lo
             FROM DeliveryOrder d
             WHERE d.orderDate <= CAST(:date AS date)  
              """)
-    Page<DeliveryOrder> getDeliveryOrderByDateIncludingCurrentDay(Pageable pageable, @Param("date") LocalDate date);
+    Page<DeliveryOrder> getDeliveryOrder(Pageable pageable, @Param("date") LocalDate date);
 
+    @Query("""
+            SELECT d
+            FROM DeliveryOrder d
+            WHERE d.orderDate <= CAST(:date AS date)  
+             """)
+    List<DeliveryOrder> getDeliveryOrder(@Param("date") LocalDate date);
 }
