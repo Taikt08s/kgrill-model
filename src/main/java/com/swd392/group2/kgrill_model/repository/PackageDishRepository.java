@@ -7,5 +7,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PackageDishRepository extends JpaRepository<PackageDish, Integer> {
+    List<PackageDish> findAllByPackageEntity_Id(int id);
     PackageDish findByPackageEntity_IdAndDish_Id(int pkgId, int dishId);
-} 
+}
