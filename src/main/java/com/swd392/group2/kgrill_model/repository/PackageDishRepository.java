@@ -8,4 +8,4 @@ import java.util.Optional;
 
 public interface PackageDishRepository extends JpaRepository<PackageDish, Integer> {
     PackageDish findByPackageEntity_IdAndDish_Id(int pkgId, int dishId);
-}
+} 
