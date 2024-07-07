@@ -9,7 +9,7 @@ import java.util.List;
 public class Shipper {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonProperty("role_id")
+    @JsonProperty("shipper_id")
     private Integer id;
     private String uuid;
     private String status;
