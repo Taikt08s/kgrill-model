@@ -1,5 +1,6 @@
 package com.swd392.group2.kgrill_model.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,14 +25,16 @@ public class Package {
     private String code;
     private Float price;
     private boolean active;
-    private String thumbnail;
+    private String thumbnailUrl;
     private String packageType;
     private String packageSize;
 
-    @OneToMany(mappedBy = "packageEntity")
+    @OneToMany(mappedBy = "packageEntity", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<OrderDetail> orderDetails;
 
-    @OneToMany(mappedBy = "packageEntity")
+    @OneToMany(mappedBy = "packageEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<PackageDish> packageDishes;
 }
 

@@ -1,6 +1,7 @@
 package com.swd392.group2.kgrill_model.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,12 +26,15 @@ public class Dish {
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "category_id")
+    @JsonManagedReference
     private DishCategory category;
     @JsonIgnore
     @OneToMany(mappedBy = "dish")
+    @JsonManagedReference
     private List<PackageDish> packageDishes;
     @JsonIgnore
     @OneToMany(mappedBy = "dish")
+    @JsonManagedReference
     private List<DishIngredient> dishIngredients;
 }
 
