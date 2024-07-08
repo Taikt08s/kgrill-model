@@ -1,5 +1,6 @@
 package com.swd392.group2.kgrill_model.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import jakarta.persistence.*;
 
@@ -12,10 +13,12 @@ public class DishIngredient {
 
     @ManyToOne
     @JoinColumn(name = "ingredient_id")
+    @JsonBackReference
     private Ingredient ingredient;
 
     @ManyToOne
     @JoinColumn(name = "dish_id")
+    @JsonBackReference
     private Dish dish;
 }
 
