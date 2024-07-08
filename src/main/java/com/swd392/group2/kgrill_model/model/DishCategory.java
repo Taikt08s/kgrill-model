@@ -1,5 +1,7 @@
 package com.swd392.group2.kgrill_model.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import jakarta.persistence.*;
 import java.util.List;
@@ -14,5 +16,6 @@ public class DishCategory {
     private String category;
 
     @OneToMany(mappedBy = "category")
+    @JsonBackReference
     private List<Dish> dishes;
 }
