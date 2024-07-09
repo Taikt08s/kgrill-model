@@ -4,12 +4,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@Builder
 @Data
 @Entity
 @NoArgsConstructor
@@ -33,7 +35,7 @@ public class Dish {
     @JsonManagedReference
     private List<PackageDish> packageDishes;
     @JsonIgnore
-    @OneToMany(mappedBy = "dish")
+    @OneToMany(mappedBy = "dish",cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<DishIngredient> dishIngredients;
 }
