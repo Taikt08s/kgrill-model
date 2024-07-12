@@ -10,6 +10,4 @@ import org.springframework.data.repository.query.Param;
 
 
 public interface ShipperRepository extends JpaRepository<Shipper, Long> {
-
-
 }

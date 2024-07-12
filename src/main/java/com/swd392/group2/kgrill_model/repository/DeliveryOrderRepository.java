@@ -87,6 +87,15 @@ public interface DeliveryOrderRepository extends JpaRepository<DeliveryOrder, Lo
             """)
     Page<DeliveryOrder> getDeliveryOrderByYear(Pageable pageable, @Param("year") int year);
 
+    @Query("""
+            SELECT COUNT(d)
+            FROM DeliveryOrder d
+            WHERE d.status = :status AND d.shipper.id = :shipperId
+            """)
+    int countDeliveryOrderByStatusAndShipperId(String status, int shipperId );
+    int countByShipperIdAndStatus(int shipperId, String status);
+    int countByShipperId(int shipperId);
 
+    Page<DeliveryOrder> getByShipperId(int shipperId, Pageable pageable);
 
 }
