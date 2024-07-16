@@ -98,4 +98,5 @@ public interface DeliveryOrderRepository extends JpaRepository<DeliveryOrder, Lo
 
     Page<DeliveryOrder> getByShipperId(int shipperId, Pageable pageable);
 
+    Page<DeliveryOrder> getDeliveryOrderByStatus(String status, Pageable pageable);
 }
