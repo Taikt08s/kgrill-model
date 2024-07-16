@@ -19,7 +19,7 @@ public interface UserRepository extends JpaRepository<User, UUID> {
     Optional<User> findByEmail(String email);
 
     @Query(value = """
-            SELECT u FROM User u WHERE u.email LIKE %:email%
+            SELECT u FROM User u WHERE u.email LIKE %:email% AND u.role.roleId != 4
             """)
     Page<User> findByEmail(@Param("email") String email, Pageable pageable);
 
