@@ -12,7 +12,7 @@ import java.util.List;
 public class OrderDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonProperty("order_id")
+    @JsonProperty("order_detail_id")
     private Integer id;
 
     private Integer quantity;
