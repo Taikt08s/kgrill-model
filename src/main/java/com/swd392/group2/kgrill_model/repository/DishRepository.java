@@ -10,8 +10,8 @@ import java.util.List;
 
 public interface DishRepository extends JpaRepository<Dish,Integer> {
     List<Dish> findByIdIn(List<Integer> ids);
-    @Query("SELECT d FROM Dish d WHERE "
-            + "CONCAT(d.name, d.price)"
-            + " LIKE %?1%")
-    Page<Dish> findByNameAndPrice(String keyword, Pageable pageable);
+    @Query("SELECT d FROM Dish d JOIN d.category c " +
+            "WHERE CONCAT(d.name, c.category) LIKE %:keyword% " +
+            "AND d.price BETWEEN :minPrice AND :maxPrice")
+    Page<Dish> findByNameAndPrice(String keyword, double minPrice, double maxPrice, Pageable pageable);
 }
