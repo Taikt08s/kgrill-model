@@ -101,7 +101,7 @@ public class User implements UserDetails, Principal {
     private Role role;
 
     @JsonIgnore
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "current_order_id")
     private DeliveryOrder currentOrder;
 

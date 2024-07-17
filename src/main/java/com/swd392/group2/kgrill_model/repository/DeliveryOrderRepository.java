@@ -9,10 +9,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Map;
+import java.util.UUID;
 
 @Repository
 public interface DeliveryOrderRepository extends JpaRepository<DeliveryOrder, Long> {
@@ -99,4 +98,6 @@ public interface DeliveryOrderRepository extends JpaRepository<DeliveryOrder, Lo
     Page<DeliveryOrder> getByShipperId(int shipperId, Pageable pageable);
 
     Page<DeliveryOrder> getDeliveryOrderByStatus(String status, Pageable pageable);
+
+    List<DeliveryOrder> findAllByAccount_UserId(UUID userId);
 }
