@@ -29,6 +29,7 @@ public class DeliveryOrder {
     private String status;
     private String code;
     private Float rating;
+    private String customerPhone;
 
     @ManyToOne
     @JoinColumn(name = "account_id")
