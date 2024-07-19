@@ -18,5 +18,5 @@ public interface DishRepository extends JpaRepository<Dish,Integer> {
             "AND (:category IS NULL OR c.category LIKE %:category%) " +
             "AND (:minPrice IS NULL OR d.price >= :minPrice) " +
             "AND (:maxPrice IS NULL OR d.price <= :maxPrice) ")
-    Page<Dish> findByNameAndPrice(String keyword, String category,double minPrice, double maxPrice, Pageable pageable);
+    Page<Dish> findByNameAndPrice(String keyword, String category, Double minPrice, Double maxPrice, Pageable pageable);
 }
