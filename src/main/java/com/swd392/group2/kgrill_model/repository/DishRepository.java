@@ -14,8 +14,9 @@ public interface DishRepository extends JpaRepository<Dish,Integer> {
             "LEFT JOIN d.category c " +
             "LEFT JOIN DishIngredient di ON di.dish.id = d.id " +
             "LEFT JOIN di.ingredient i " +
-            "WHERE (:keyword IS NULL OR :keyword = '' OR d.name LIKE %:keyword% OR c.category LIKE %:keyword% OR i.name LIKE %:keyword%) " +
+            "WHERE (:keyword IS NULL OR :keyword = '' OR d.name LIKE %:keyword% OR i.name LIKE %:keyword%) " +
+            "AND (:category IS NULL OR c.category LIKE %:category%) " +
             "AND (:minPrice IS NULL OR d.price >= :minPrice) " +
             "AND (:maxPrice IS NULL OR d.price <= :maxPrice) ")
-    Page<Dish> findByNameAndPrice(String keyword, double minPrice, double maxPrice, Pageable pageable);
+    Page<Dish> findByNameAndPrice(String keyword, String category,double minPrice, double maxPrice, Pageable pageable);
 }
