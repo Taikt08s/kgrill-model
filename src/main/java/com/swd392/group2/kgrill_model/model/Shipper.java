@@ -1,5 +1,4 @@
 package com.swd392.group2.kgrill_model.model;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -12,11 +11,7 @@ public class Shipper {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty("shipper_id")
     private Integer id;
-
-    @JsonIgnore
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "account_id")
-    private User accountId;
+    private String uuid;
     private String status;
 
     @OneToMany(mappedBy = "shipper")
