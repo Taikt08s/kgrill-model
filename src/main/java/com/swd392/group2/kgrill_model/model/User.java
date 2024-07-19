@@ -106,6 +106,10 @@ public class User implements UserDetails, Principal {
     private DeliveryOrder currentOrder;
 
     @JsonIgnore
+    @OneToOne(mappedBy = "accountId")
+    private Shipper shipperAccount;
+
+    @JsonIgnore
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<DeliveryOrder> orders;
 
