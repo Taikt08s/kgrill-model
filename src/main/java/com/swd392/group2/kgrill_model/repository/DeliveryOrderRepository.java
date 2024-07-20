@@ -102,6 +102,11 @@ public interface DeliveryOrderRepository extends JpaRepository<DeliveryOrder, Lo
 
     Page<DeliveryOrder> getByShipperId(int shipperId, Pageable pageable);
 
+    @Query("""
+            SELECT d
+            FROM DeliveryOrder d
+            WHERE d.status = 'Preparing' OR d.status = 'Processing'
+            """)
     Page<DeliveryOrder> getDeliveryOrderByStatus(String status, Pageable pageable);
 
     List<DeliveryOrder> findAllByAccount_UserId(UUID userId);
