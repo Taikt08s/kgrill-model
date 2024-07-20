@@ -110,4 +110,6 @@ public interface DeliveryOrderRepository extends JpaRepository<DeliveryOrder, Lo
     Page<DeliveryOrder> getDeliveryOrderByStatus(String status, Pageable pageable);
 
     List<DeliveryOrder> findAllByAccount_UserId(UUID userId);
+
+    List<DeliveryOrder> findAllByShipper_Id(int shipperId);
 }
