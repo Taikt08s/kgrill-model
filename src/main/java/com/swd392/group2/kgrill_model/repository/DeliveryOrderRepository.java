@@ -69,8 +69,8 @@ public interface DeliveryOrderRepository extends JpaRepository<DeliveryOrder, Lo
     @Query("""
             SELECT d
             FROM DeliveryOrder d
-            WHERE FUNCTION('DATE',d.orderDate) = FUNCTION('DATE',CAST(:date AS DATE))  AND d.status = 'Delivered' 
-            OR d.status = 'Cancelled'
+            WHERE FUNCTION('DATE',d.orderDate) = FUNCTION('DATE',CAST(:date AS DATE))  AND (d.status = 'Delivered' 
+            OR d.status = 'Cancelled')
             """)
     Page<DeliveryOrder> getDeliveryOrderByDaily(Pageable pageable, @Param("date") LocalDate date);
 
@@ -78,16 +78,16 @@ public interface DeliveryOrderRepository extends JpaRepository<DeliveryOrder, Lo
             SELECT d
             FROM DeliveryOrder d
             WHERE EXTRACT(YEAR FROM d.orderDate) = :year
-            AND EXTRACT(MONTH FROM d.orderDate) = :month  AND d.status = 'Delivered' 
-            OR d.status = 'Cancelled'
+            AND EXTRACT(MONTH FROM d.orderDate) = :month  AND ( d.status = 'Delivered' 
+            OR d.status = 'Cancelled')
             """)
     Page<DeliveryOrder> getDeliveryOrderByMonth(Pageable pageable, @Param("year") int year, @Param("month") int month);
 
     @Query(value = """
             SELECT d
             FROM DeliveryOrder d
-            WHERE EXTRACT(YEAR FROM d.orderDate) = :year  AND d.status = 'Delivered' 
-            OR d.status = 'Cancelled'
+            WHERE EXTRACT(YEAR FROM d.orderDate) = :year  AND (d.status = 'Delivered' 
+            OR d.status = 'Cancelled')
             """)
     Page<DeliveryOrder> getDeliveryOrderByYear(Pageable pageable, @Param("year") int year);
 
