@@ -100,6 +100,9 @@ public class User implements UserDetails, Principal {
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 
+    @Column(name = "device_token")
+    private String deviceToken;
+
     @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "current_order_id")
